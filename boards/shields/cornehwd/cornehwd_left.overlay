@@ -5,7 +5,7 @@
 #include "cornehwd.dtsi"
 
 &kscan {
-    diode-direction = "col2row";
+    diode-direction = "row2col";
 
     row-gpios = <
         &gpio0 10 GPIO_ACTIVE_HIGH
