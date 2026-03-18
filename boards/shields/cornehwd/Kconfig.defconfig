@@ -1,0 +1,16 @@
+if SHIELD_CORNEHWD_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "cornehwd"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif # SHIELD_CORNEHWD_LEFT
+
+if SHIELD_CORNEHWD_LEFT || SHIELD_CORNEHWD_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif # SHIELD_CORNEHWD_LEFT || SHIELD_CORNEHWD_RIGHT

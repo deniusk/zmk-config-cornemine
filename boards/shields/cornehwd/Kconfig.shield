@@ -1,0 +1,5 @@
+config SHIELD_CORNEHWD_LEFT
+    def_bool $(shields_list_contains,cornehwd_left)
+
+config SHIELD_CORNEHWD_RIGHT
+    def_bool $(shields_list_contains,cornehwd_right)
