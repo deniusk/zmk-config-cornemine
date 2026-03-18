@@ -1,9 +1,9 @@
-// Left side overlay
+// Left side overlay - CORREGIDO PARA EFECTO ESPEJO
 
 #include "cornehwd.dtsi"
 
 &kscan {
-    // Las filas actúan como salidas, no necesitan PULL_DOWN
+    // Las filas están bien, no las tocamos
     row-gpios = <
         &gpio1 15 GPIO_ACTIVE_HIGH
         &gpio1 13 GPIO_ACTIVE_HIGH
@@ -11,14 +11,14 @@
         &gpio0 10 GPIO_ACTIVE_HIGH
     >;  
 
-    // Las columnas actúan como entradas, SÍ necesitan PULL_DOWN
+    // CORREGIDO: Lista de columnas invertida para arreglar "rewq"
     col-gpios = <
-        &gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
-        &gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
-        &gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
-        &gpio1 0  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
+        &gpio1 4  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) // Antes era el último
         &gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
-        &gpio1 4  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
+        &gpio1 0  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
+        &gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
+        &gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
+        &gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) // Antes era el primero
     >;
 };
 

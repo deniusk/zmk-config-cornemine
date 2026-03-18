@@ -1,9 +1,8 @@
-// Right side overlay
+// Right side overlay - CORREGIDO PARA SIMETRÍA
 
 #include "cornehwd.dtsi"
 
 &kscan {
-    // Las filas actúan como salidas, no necesitan PULL_DOWN
     row-gpios = <
         &gpio1 15 GPIO_ACTIVE_HIGH
         &gpio1 13 GPIO_ACTIVE_HIGH
@@ -11,17 +10,17 @@
         &gpio0 10 GPIO_ACTIVE_HIGH
     >;  
 
-    // Las columnas actúan como entradas, SÍ necesitan PULL_DOWN
+    // CORREGIDO: Lista de columnas invertida por simetría con el lado izquierdo
     col-gpios = <
-        &gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
-        &gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
-        &gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
-        &gpio1 0  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
-        &gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
         &gpio1 4  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
+        &gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
+        &gpio1 0  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
+        &gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
+        &gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
+        &gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
     >;
 };
 
 &default_transform {
-    col-offset = <6>;  // CRÍTICO para el lado derecho
+    col-offset = <6>;
 };

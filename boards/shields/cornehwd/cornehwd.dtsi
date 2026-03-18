@@ -11,15 +11,11 @@
     kscan: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         wakeup-source;
-        
-        // CORREGIDO: Línea negra del diodo hacia la columna
         diode-direction = "row2col"; 
     };
 
     default_transform: default_transform {
         compatible = "zmk,matrix-transform";
-
-        // Corne: 6 columnas por lado → 12 total
         columns = <12>;
         rows = <4>;
 
@@ -33,8 +29,9 @@
             // Fila 2
             RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)   RC(2,6) RC(2,7) RC(2,8) RC(2,9) RC(2,10) RC(2,11)
 
-            // Thumb row (Corregido para simetría: asume que usaste las 3 columnas internas)
-                    RC(3,3) RC(3,4) RC(3,5)                       RC(3,9) RC(3,10) RC(3,11)
+            // Thumb row (CORREGIDO: Asume que usaste las columnas externas 0,1,2)
+            // Lado Izquierdo (0,1,2)                      // Lado Derecho (6,7,8 -> porque 0+6, 1+6, 2+6)
+                    RC(3,0) RC(3,1) RC(3,2)                       RC(3,6) RC(3,7) RC(3,8)
         >;
     };
 };
