@@ -8,13 +8,14 @@
         &gpio0 10 GPIO_ACTIVE_HIGH
     >;  
 
+    // CORREGIDO: Invertido el orden respecto al lado izquierdo para arreglar el espejo
     col-gpios = <
-        &gpio1 4  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
-        &gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
-        &gpio1 0  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
-        &gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
-        &gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
         &gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
+        &gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
+        &gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
+        &gpio1 0  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
+        &gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
+        &gpio1 4  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
     >;
 };
 
