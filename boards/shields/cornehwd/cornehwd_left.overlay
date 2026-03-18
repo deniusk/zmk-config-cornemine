@@ -1,12 +1,9 @@
-// This file was generated from a template. Edit it to match your keyboard.
-// See https://zmk.dev/docs/development/hardware-integration/new-shield for more
-// instructions.
+// Left side overlay
 
 #include "cornehwd.dtsi"
 
 &kscan {
-    diode-direction = "col2row";
-
+    // Las filas actúan como salidas, no necesitan PULL_DOWN
     row-gpios = <
         &gpio1 15 GPIO_ACTIVE_HIGH
         &gpio1 13 GPIO_ACTIVE_HIGH
@@ -14,16 +11,16 @@
         &gpio0 10 GPIO_ACTIVE_HIGH
     >;  
 
+    // Las columnas actúan como entradas, SÍ necesitan PULL_DOWN
     col-gpios = <
-        &gpio0 20 GPIO_ACTIVE_HIGH
-        &gpio0 22 GPIO_ACTIVE_HIGH
-        &gpio0 24 GPIO_ACTIVE_HIGH
-        &gpio1 0  GPIO_ACTIVE_HIGH
-        &gpio0 11 GPIO_ACTIVE_HIGH
-        &gpio1 4  GPIO_ACTIVE_HIGH
+        &gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
+        &gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
+        &gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
+        &gpio1 0  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
+        &gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
+        &gpio1 4  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
     >;
 };
-
 
 &default_transform {
     col-offset = <0>;
